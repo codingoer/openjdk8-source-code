@@ -34,35 +34,35 @@ import  java.util.jar.JarFile;
  */
 
 /**
- * This class provides services needed to instrument Java
- * programming language code.
- * Instrumentation is the addition of byte-codes to methods for the
- * purpose of gathering data to be utilized by tools.
- * Since the changes are purely additive, these tools do not modify
- * application state or behavior.
- * Examples of such benign tools include monitoring agents, profilers,
- * coverage analyzers, and event loggers.
+ * This class provides services needed to instrument Java programming language code.
+ * 该类提供了检测Java编程语言代码所需的服务。
+ * Instrumentation is the addition of byte-codes to methods for the purpose of gathering data to be utilized by tools.
+ * 插装是将字节码添加到方法中，以收集供工具使用的数据。
+ * Since the changes are purely additive, these tools do not modify application state or behavior.
+ * 由于这些更改纯粹是附加的，所以这些工具不会修改应用程序的状态或行为。
+ * Examples of such benign tools include monitoring agents, profilers, coverage analyzers, and event loggers.
+ * 此类良性工具的例子包括监视代理、剖析器、覆盖分析程序和事件记录器。
  *
  * <P>
- * There are two ways to obtain an instance of the
- * <code>Instrumentation</code> interface:
+ * There are two ways to obtain an instance of the <code>Instrumentation</code> interface:
+ * 有两种方法可以获得Instrumentation接口的实例:
  *
  * <ol>
- *   <li><p> When a JVM is launched in a way that indicates an agent
- *     class. In that case an <code>Instrumentation</code> instance
- *     is passed to the <code>premain</code> method of the agent class.
+ *   <li><p> When a JVM is launched in a way that indicates an agent class.
+ *     In that case an <code>Instrumentation</code> instance is passed to the <code>premain</code> method of the agent class.
+ *     当JVM以指示代理类的方式启动时。在这种情况下，Instrumentation实例被传递给代理类的premain方法。
  *     </p></li>
- *   <li><p> When a JVM provides a mechanism to start agents sometime
- *     after the JVM is launched. In that case an <code>Instrumentation</code>
- *     instance is passed to the <code>agentmain</code> method of the
- *     agent code. </p> </li>
+ *   <li><p> When a JVM provides a mechanism to start agents sometime after the JVM is launched.
+ *     In that case an <code>Instrumentation</code> instance is passed to the <code>agentmain</code> method of the agent code.
+ *     当JVM提供在JVM启动后某个时间启动代理的机制时。在这种情况下，Instrumentation实例被传递给代理代码的agentmain方法。
+ *     </p> </li>
  * </ol>
  * <p>
- * These mechanisms are described in the
- * {@linkplain java.lang.instrument package specification}.
+ * These mechanisms are described in the {@linkplain java.lang.instrument package specification}.
+ * 这些机制在包规范中进行了描述。（https://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html）
  * <p>
- * Once an agent acquires an <code>Instrumentation</code> instance,
- * the agent may call methods on the instance at any time.
+ * Once an agent acquires an <code>Instrumentation</code> instance, the agent may call methods on the instance at any time.
+ * 一旦代理获得了Instrumentation实例，代理就可以在任何时候调用该实例上的方法。
  *
  * @since   1.5
  */

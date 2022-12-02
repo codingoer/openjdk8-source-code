@@ -32,25 +32,25 @@ package java.lang.instrument;
 /**
  * This class serves as a parameter block to the <code>Instrumentation.redefineClasses</code> method.
  * Serves to bind the <code>Class</code> that needs redefining together with the new class file bytes.
- *
+ * 该类充当 <code> Instrumentation.redefineClasses方法的参数块。用于将需要重新定义的类与新的类文件字节绑定在一起。
  * @see     java.lang.instrument.Instrumentation#redefineClasses
  * @since   1.5
  */
 public final class ClassDefinition {
     /**
-     *  The class to redefine
+     *  The class to redefine  要重新定义的类
      */
     private final Class<?> mClass;
 
     /**
-     *  The replacement class file bytes
+     *  The replacement class file bytes  替换类文件的字节
      */
     private final byte[]   mClassFile;
 
     /**
-     *  Creates a new <code>ClassDefinition</code> binding using the supplied
-     *  class and class file bytes. Does not copy the supplied buffer, just captures a reference to it.
-     *
+     *  Creates a new <code>ClassDefinition</code> binding using the supplied class and class file bytes.
+     *  Does not copy the supplied buffer, just captures a reference to it.
+     *  <br/>使用提供的类和类文件字节创建新的ClassDefinition绑定。不复制提供的缓冲区，只是捕获对它的引用。
      * @param theClass the <code>Class</code> that needs redefining
      * @param theClassFile the new class file bytes
      *
