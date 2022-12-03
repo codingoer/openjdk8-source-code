@@ -53,43 +53,43 @@ public interface ClassFileTransformer {
      * return a new replacement class file.此方法的实现可以转换所提供的类文件并返回一个新的替换类文件。
      *
      * <P>
-     * There are two kinds of transformers, determined by the <code>canRetransform</code>
-     * parameter of
+     * There are two kinds of transformers, determined by the <code>canRetransform</code> parameter of
      * {@link java.lang.instrument.Instrumentation#addTransformer(ClassFileTransformer,boolean)}:
+     * 有两种类型的转换器，由 Instrumentation#addtransformer(ClassFileTransformer,boolean)的canRetransform参数确定:
      *  <ul>
-     *    <li><i>retransformation capable</i> transformers that were added with
-     *        <code>canRetransform</code> as true
+     *    <li><i>retransformation capable</i> transformers that were added with <code>canRetransform</code> as true
+     *        添加了canRetransform为true的能重新转换的转换器。
      *    </li>
      *    <li><i>retransformation incapable</i> transformers that were added with
-     *        <code>canRetransform</code> as false or where added with
-     *        {@link java.lang.instrument.Instrumentation#addTransformer(ClassFileTransformer)}
+     *        <code>canRetransform</code> as false or where added with {@link java.lang.instrument.Instrumentation#addTransformer(ClassFileTransformer)}
+     *        添加了canRetransform为false或添加了 Instrumentation#addtransformer(ClassFileTransformer)的不能重新转换的转换器
      *    </li>
      *  </ul>
      *
      * <P>
      * Once a transformer has been registered with
-     * {@link java.lang.instrument.Instrumentation#addTransformer(ClassFileTransformer,boolean)
-     * addTransformer},
+     * {@link java.lang.instrument.Instrumentation#addTransformer(ClassFileTransformer,boolean) addTransformer},
      * the transformer will be called for every new class definition and every class redefinition.
+     * 一旦向addTransformer注册了一个转换器，就会在每次新的类定义和每次类重定义时调用该转换器。
      * Retransformation capable transformers will also be called on every class retransformation.
-     * The request for a new class definition is made with
-     * {@link java.lang.ClassLoader#defineClass ClassLoader.defineClass}
-     * or its native equivalents.
+     * 能够进行重新转换的转换器也将在每个类的重新转换中被调用。
+     * The request for a new class definition is made with {@link java.lang.ClassLoader#defineClass ClassLoader.defineClass}
+     * or its native equivalents. 对定义新类的请求是通过ClassLoader.defineClass或原生的等价类实现的。
      * The request for a class redefinition is made with
      * {@link java.lang.instrument.Instrumentation#redefineClasses Instrumentation.redefineClasses}
-     * or its native equivalents.
+     * or its native equivalents.对类重新定义的请求是通过Instrumentation发出的。redefineclass或它的原生等等物。
      * The request for a class retransformation is made with
      * {@link java.lang.instrument.Instrumentation#retransformClasses Instrumentation.retransformClasses}
-     * or its native equivalents.
+     * or its native equivalents.对类重新转换的请求是通过Instrumentation发出的。Instrumentation.retransformClasses或其原生等价物。
      * The transformer is called during the processing of the request, before the class file bytes
-     * have been verified or applied.
+     * have been verified or applied.转换器在请求处理过程中，在验证或应用类文件字节之前被调用。
      * When there are multiple transformers, transformations are composed by chaining the
-     * <code>transform</code> calls.
+     * <code>transform</code> calls.当有多个转换器时，转换器通过链接调用transform来组成。
      * That is, the byte array returned by one call to <code>transform</code> becomes the input
      * (via the <code>classfileBuffer</code> parameter) to the next call.
-     *
+     * 也就是说，一个转换调用返回的字节数组成为下一个调用的输入(通过classfileBuffer参数)。
      * <P>
-     * Transformations are applied in the following order:
+     * Transformations are applied in the following order:转换按以下顺序应用:
      *  <ul>
      *    <li>Retransformation incapable transformers
      *    </li>
@@ -102,12 +102,12 @@ public interface ClassFileTransformer {
      *  </ul>
      *
      * <P>
-     * For retransformations, the retransformation incapable transformers are not
-     * called, instead the result of the previous transformation is reused.
-     * In all other cases, this method is called.
-     * Within each of these groupings, transformers are called in the order registered.
-     * Native transformers are provided by the <code>ClassFileLoadHook</code> event
-     * in the Java Virtual Machine Tool Interface).
+     * For retransformations, the retransformation incapable transformers are not called,
+     * instead the result of the previous transformation is reused.
+     * 对于重新转换，不会调用重新转换能力的转换器，而是重用前一个转换的结果。
+     * In all other cases, this method is called. Within each of these groupings, transformers are called in the order registered.
+     * Native transformers are provided by the <code>ClassFileLoadHook</code> event in the Java Virtual Machine Tool Interface).
+     * 在所有其他情况下，都会调用此方法。在每一个组中，按注册的顺序调用变压器。本机转换器由Java虚拟机工具接口中的ClassFileLoadHook事件提供)。
      *
      * <P>
      * The input (via the <code>classfileBuffer</code> parameter) to the first transformer is:
@@ -118,17 +118,17 @@ public interface ClassFileTransformer {
      *    </li>
      *    <li>for class redefinition,
      *        <code>definitions.getDefinitionClassFile()</code> where
-     *        <code>definitions</code> is the parameter to
-     *        {@link java.lang.instrument.Instrumentation#redefineClasses
-     *         Instrumentation.redefineClasses}
+     *        <code>definitions</code> is the parameter to {@link java.lang.instrument.Instrumentation#redefineClasses
+     *        Instrumentation.redefineClasses}
+     *        对于类重定义，可以使用definitions.getdefinitionclassfile()，其中definitions是Instrumentation.redefineclass的参数
      *    </li>
      *    <li>for class retransformation,
      *         the bytes passed to the new class definition or, if redefined,
      *         the last redefinition, with all transformations made by retransformation
      *         incapable transformers reapplied automatically and unaltered;
-     *         for details see
-     *         {@link java.lang.instrument.Instrumentation#retransformClasses
-     *          Instrumentation.retransformClasses}
+     *         for details see {@link java.lang.instrument.Instrumentation#retransformClasses Instrumentation.retransformClasses}
+     *         对于类重转换，传递给新类定义的字节，或者如果被重定义，则传递给最后一个重定义的字节，并且由重转换所做的所有转换都不能被自动重新应用且不被更改;
+     *
      *    </li>
      *  </ul>
      *
