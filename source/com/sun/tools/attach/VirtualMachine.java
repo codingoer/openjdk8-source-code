@@ -36,17 +36,17 @@ import java.io.IOException;
  * A Java virtual machine.
  *
  * <p> A <code>VirtualMachine</code> represents a Java virtual machine to which this
- * Java virtual machine has attached. The Java virtual machine to which it is
- * attached is sometimes called the <i>target virtual machine</i>, or <i>target VM</i>.
- * An application (typically a tool such as a managemet console or profiler) uses a
- * VirtualMachine to load an agent into the target VM. For example, a profiler tool
- * written in the Java Language might attach to a running application and load its
- * profiler agent to profile the running application. </p>
+ * Java virtual machine has attached. The Java virtual machine to which it is attached is sometimes called the <i>target virtual machine</i>, or <i>target VM</i>.
+ * <code>VirtualMachine</code>表示该Java虚拟机所附加的Java虚拟机。它所附加的Java虚拟机有时称为目标虚拟机，或目标虚拟机。
+ * An application (typically a tool such as a managemet console or profiler) uses a VirtualMachine to load an agent into the target VM.
+ * 应用程序(通常是管理控制台或分析器等工具)使用VirtualMachine将代理加载到目标VM中。
+ * For example, a profiler tool written in the Java Language might attach to a running application and load its
+ * profiler agent to profile the running application. 例如，用Java语言编写的分析器工具可能附加到正在运行的应用程序，并加载其分析器代理来分析正在运行的应用程序。</p>
  *
  * <p> A VirtualMachine is obtained by invoking the {@link #attach(String) attach} method
- * with an identifier that identifies the target virtual machine. The identifier is
- * implementation-dependent but is typically the process identifier (or pid) in
- * environments where each Java virtual machine runs in its own operating system process.
+ * with an identifier that identifies the target virtual machine. 要获得虚拟机，可以调用 attach 方法，并传入一个标识目标虚拟机的标识符。
+ * The identifier is implementation-dependent but is typically the process identifier (or pid) in
+ * environments where each Java virtual machine runs in its own operating system process. 该标识符依赖于实现，但通常是每个Java虚拟机在其自己的操作系统进程中运行的环境中的进程标识符(或pid)。
  * Alternatively, a <code>VirtualMachine</code> instance is obtained by invoking the
  * {@link #attach(VirtualMachineDescriptor) attach} method with a {@link
  * com.sun.tools.attach.VirtualMachineDescriptor VirtualMachineDescriptor} obtained

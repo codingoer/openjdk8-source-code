@@ -24,17 +24,17 @@
  */
 
 /**
- * Provides the API to attach to a Java<sup><font size=-2>TM</font></sup>
- * virtual machine.
+ * Provides the API to attach to a Java<sup><font size=-2>TM</font></sup> virtual machine.
+ * 提供附加到JavaTM虚拟机的API。
  * <p>
- * A tool, written in the Java Language, uses this API to attach to a target
- * virtual machine (VM) and load its tool agent into the target VM. For
- * example, a management console might have a management agent which it uses
- * to  obtain management information from instrumented objects in a Java
- * virtual machine. If the management console is required to manage
- * an application that is running in a virtual machine that does not include
- * the management agent, then this API can be used to attach to the target
- * VM and load the agent.
+ * A tool, written in the Java Language, uses this API to attach to a target virtual machine (VM)
+ * and load its tool agent into the target VM. 用Java语言编写的工具，使用这个API附加到目标虚拟机(VM)，并将其工具代理加载到目标VM中。
+ * For example, a management console might have a management agent which it uses
+ * to  obtain management information from instrumented objects in a Java virtual machine.
+ * 例如，管理控制台可能有一个管理代理，用于从Java虚拟机中的仪器化对象中获取管理信息。
+ * If the management console is required to manage an application that is running in a virtual machine that does not include
+ * the management agent, then this API can be used to attach to the target VM and load the agent.
+ * 如果需要管理控制台来管理在不包含管理代理的虚拟机中运行的应用程序，则可以使用此API附加到目标VM并加载代理。
  *
  * @since 1.6
  */

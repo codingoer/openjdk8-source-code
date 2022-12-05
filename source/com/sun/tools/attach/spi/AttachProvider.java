@@ -38,10 +38,10 @@ import java.util.ServiceLoader;
 
 /**
  * Attach provider class for attaching to a Java virtual machine.
- *
+ * 附加提供程序类，用于附加到Java虚拟机。
  * <p> An attach provider is a concrete subclass of this class that has a
- * zero-argument constructor and implements the abstract methods specified
- * below. </p>
+ * zero-argument constructor and implements the abstract methods specified below. </p>
+ * 附加提供程序是该类的一个具体子类，它具有一个零参数构造函数并实现下面指定的抽象方法。
  *
  * <p> An attach provider implementation is typically tied to a Java virtual
  * machine implementation, version, or even mode of operation. That is, a specific

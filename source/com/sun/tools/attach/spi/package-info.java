@@ -25,8 +25,8 @@
 
 
 /**
- * Only developers who are defining new attach providers should need to make
- * direct use of this package.
+ * Only developers who are defining new attach providers should need to make direct use of this package.
+ * 只有正在定义新的附加提供程序的开发人员才需要直接使用此包。
  *
  * @since 1.6
  */
