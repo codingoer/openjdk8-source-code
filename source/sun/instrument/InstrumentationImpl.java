@@ -48,7 +48,7 @@ import java.util.jar.JarFile;
  * Works in concert with a native JVMTI agent to implement the JPLIS API set. 与本机JVMTI代理协同工作，以实现JPLIS API集。
  * Provides both the Java API implementation of the Instrumentation interface and utility Java routines to support the native code.
  * Keeps a pointer to the native data structure in a scalar field to allow native processing behind native methods.
- *
+ * 提供Instrumentation接口的Java API实现和实用程序Java例程以支持native代码。
  */
 public class InstrumentationImpl implements Instrumentation {
     private final     TransformerManager      mTransformerManager;
