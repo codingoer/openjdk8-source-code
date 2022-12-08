@@ -36,7 +36,7 @@ import java.util.Properties;
 import java.util.stream.Collectors;
 
 /*
- * The HotSpot implementation of com.sun.tools.attach.VirtualMachine.
+ * The HotSpot implementation of com.sun.tools.attach.VirtualMachine. HotSpot实现。
  */
 
 public abstract class HotSpotVirtualMachine extends VirtualMachine {
@@ -89,8 +89,8 @@ public abstract class HotSpotVirtualMachine extends VirtualMachine {
     }
 
     /*
-     * Load JPLIS agent which will load the agent JAR file and invoke
-     * the agentmain method.
+     * Load JPLIS agent which will load the agent JAR file and invoke the agentmain method.
+     * 加载JPLIS代理，它将加载代理JAR文件并调用agentmain方法。
      */
     public void loadAgent(String agent, String options)
         throws AgentLoadException, AgentInitializationException, IOException
@@ -100,7 +100,7 @@ public abstract class HotSpotVirtualMachine extends VirtualMachine {
             args = args + "=" + options;
         }
         try {
-            loadAgentLibrary("instrument", args);
+            loadAgentLibrary("instrument", args); //libinstrument类库
         } catch (AgentLoadException x) {
             throw new InternalError("instrument library is missing in target VM", x);
         } catch (AgentInitializationException x) {

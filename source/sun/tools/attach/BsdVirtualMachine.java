@@ -66,8 +66,8 @@ public class BsdVirtualMachine extends HotSpotVirtualMachine {
         }
 
         // Find the socket file. If not found then we attempt to start the
-        // attach mechanism in the target VM by sending it a QUIT signal.
-        // Then we attempt to find the socket file again.
+        // attach mechanism in the target VM by sending it a QUIT signal.Then we attempt to find the socket file again.
+        // 找到套接字文件。如果没有找到，那么我们尝试通过发送一个QUIT信号在目标VM中启动附加机制。然后再次尝试查找套接字文件。
         path = findSocketFile(pid);
         if (path == null) {
             File f = new File(tmpdir, ".attach_pid" + pid);
@@ -304,7 +304,7 @@ public class BsdVirtualMachine extends HotSpotVirtualMachine {
     static native String getTempDir();
 
     static {
-        System.loadLibrary("attach");
+        System.loadLibrary("attach"); //libattach
         tmpdir = getTempDir();
     }
 }

@@ -32,8 +32,8 @@ import com.sun.tools.attach.spi.AttachProvider;
 import java.io.IOException;
 
 /*
- * An AttachProvider implementation for Bsd that uses a UNIX domain
- * socket.
+ * An AttachProvider implementation for Bsd that uses a UNIX domain socket.
+ * 使用UNIX域套接字的Bsd的AttachProvider实现。
  */
 public class BsdAttachProvider extends HotSpotAttachProvider {
 
